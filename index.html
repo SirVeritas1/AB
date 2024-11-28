@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anton Brade</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background-color: #1C1C1C;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: fixed;
+            border-right: 1px solid #333;
+            box-shadow: 3px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid #C8102E;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profile p {
+            font-size: 13px;
+            color: #B0B0B0;
+        }
+
+        /* Menu */
+        .menu {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #E0E0E0;
+            padding: 12px 0;
+            font-size: 17px;
+            transition: all 0.3s;
+            border-radius: 5px;
+            margin: 5px 15px;
+        }
+
+        .menu a:hover {
+            color: #FFFFFF;
+            background-color: #C8102E;
+        }
+
+        /* Copyright */
+        .copyright {
+            margin-top: auto;
+            text-align: center;
+            font-size: 14px;
+            color: #B0B0B0;
+        }
+
+        .copyright a {
+            color: #C8102E;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content */
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+            width: calc(100% - 240px);
+        }
+
+        .content section {
+            margin-bottom: 40px;
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .content h1 {
+            font-size: 26px;
+            color: #C8102E;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #E0E0E0;
+        }
+
+        /* Kontaktformular */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form button {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .contact-form button {
+            background-color: #C8102E;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #A00E24;
+        }
+
+        .projects-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.project-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Portfolio */
+#portfolio {
+    margin-bottom: 40px;
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#portfolio h1 {
+    font-size: 26px;
+    color: #C8102E;
+    margin-bottom: 15px;
+}
+
+.portfolio-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+}
+
+.portfolio-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.portfolio-container::-webkit-scrollbar-thumb {
+    background-color: #C8102E;
+    border-radius: 5px;
+}
+
+.portfolio-item {
+    min-width: 200px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.portfolio-item img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="https://github.com/SirVeritas1/AB/blob/main/images/anton%20(5).png?raw=true" alt="Profilbillede" class="profile-img">
+            <h2>Anton B.</h2>
+            <p>Kreativ Designer</p>
+        </div>
+        <nav class="menu">
+            <a href="#about">Om Mig</a>
+            <a href="#projects">Projekter</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+        <div class="copyright">
+            © 2024 Anton Brade | <a href="#">Læs mere</a>
+        </div>
+    </div>
+    <div class="content">
+        <section id="about">
+            <h1>Om Mig</h1>
+            <p>Mit navn er Anton Brade, jeg er en 14 årig dreng, jeg har mange projekter og laver altid nye. 
+               Jeg er også ejer af <a href="#">SV Projects</a>. Lige nu står jeg uden fritidsarbejde eller sport, 
+               dog har jeg jo mine projekter, som jeg brænder for. Jeg elsker at være kreativ og skabe innovative løsninger, 
+               hvad enten det er design, udvikling eller nye ideer.</p>
+        </section>
+        
+        <section id="projects">
+            <h1>Projekter</h1>
+            <div class="projects-container">
+                <!-- Projekt 1 -->
+                <a href="https://example.com/project1" target="_blank">
+                    <img src="https://github.com/SirVeritas1/AB/blob/main/images/Sir%20veritas%20reasearch.png?raw=true" alt="SV Research" class="project-logo">
+                </a>
+                <!-- Projekt 2 -->
+                <a href="https://example.com/project2" target="_blank">
+                    <img src="https://github.com/SirVeritas1/AB/blob/main/images/SVP%20Logo%20(1).png?raw=true" alt="Projekt 2 logo" class="project-logo">
+                </a>
+                <!-- Projekt 3 -->
+                <a href="https://example.com/project3" target="_blank">
+                    <img src="https://github.com/SirVeritas1/AB/blob/main/images/anton.png?raw=true" alt="Projekt 3 logo" class="project-logo">
+                </a>
+            </div>
+        </section>
+        
+        <section id="portfolio">
+            <h1>Portfolio</h1>
+            <div class="portfolio-container">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/200?text=Design1" alt="Design 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/200?text=Design2" alt="Design 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/200?text=Design3" alt="Design 3">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/200?text=Design4" alt="Design 4">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/200?text=Design5" alt="Design 5">
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h1>Kontakt</h1>
+            <form class="contact-form" action="https://example.com/formsubmit" method="POST">
+                <input type="text" name="name" placeholder="Dit navn" required>
+                <input type="email" name="email" placeholder="Din e-mail" required>
+                <textarea name="message" placeholder="Din besked" required></textarea>
+                <button type="submit">Send Besked</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
